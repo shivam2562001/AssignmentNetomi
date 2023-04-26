@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+      }
+      .container {
+        border: 3px;
+        border-style: solid;
+        border-color: rgb(43, 186, 15);
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+      .embed {
+        border: 3px;
+        border-style: solid;
+        border-color: rgb(243, 56, 56);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <iframe id="frame" class="embed" src="Form.html" height="600" width="400">
+      </iframe>
+      <p class="result"></p>
+    </div>
+    <script>
+      const iframe = document.getElementById("frame");
+      const Validations = {
+        validators: [
+          {
+            field: "name",
+            validator: [{minlength:4,maxlength:10 }],
+          },
+          {
+            field: "email",
+            validator: [{ required: true }],
+          },
+          {
+            field: "contact",
+            validator: [{ required: true }],
+          },
+          {
+            field: "country",
+            validator: [{ required: true }],
+          },
+          {
+            field: "state",
+            validator: [{ required: true }],
+          },
+        ],
+      };
+      iframe.onload = function () {
+        iframe.contentWindow.postMessage(Validations, "*");
+      };
+
+      window.addEventListener("message", function (event) {
+        if (event.data) {
+          document.querySelector(".result").innerHTML =
+            "Result:" + JSON.stringify(event.data);
+        }
+        console.log(event.data); // Message received from child
+      });
+    </script>
+  </body>
+</html>

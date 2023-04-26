@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Form Validation Example</title>
+	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+	<link rel="stylesheet" href="Form.css">
+	
+</head>
+<body>
+   <div class="child-container">
+	<div class="form-container">
+		<p class="header-text">Can you please provide your personal details?</p><br>
+	<form id="info-form">
+		<div class="form-group">
+		<label for="name" class="form-col-text">Name</label>
+		<input type="text" id="name" name="name" >
+	    </div>
+		<div class="form-group">
+		<label for="email" class="form-col-text">Email:</label>
+		<input type="text" id="email" name="email" >
+	    </div> 
+		<div class="form-group">
+		<label for="contact-number" class="form-col-text">Contact Number</label>
+		<input type="tel" id="contact-number" name="contact-number" ><br>
+	    </div>
+		<div class="form-group">
+		<label for="country" class="form-col-text">Country</label>
+		<select id="country" name="country" >
+			<option value="">Select a country</option>
+		</select>
+	   </div><br>
+	   <div class="form-group">
+		<label for="state" class="form-col-text">State</label>
+		<select id="state" name="state" >
+			<option value="">Select a state</option>
+		</select><br>
+	</div>
+        <button type="submit" class="button-style">Submit</button>
+    </form>
+</div>
+</div>
+<script  src="script.js" />
+</body>
+</html>
