@@ -20,11 +20,13 @@ if (window.addEventListener) {
 
 
 function displayMessage(evt) {
-    if (evt.origin !== "http://127.0.0.1:5500") {
+   /*  if (evt.origin !== "http://127.0.0.1:5500") {
         return false;
     } else {
         validations = evt.data.validators;
-    }
+    } */
+
+    validations = evt.data.validators;
 }
 
 axios
